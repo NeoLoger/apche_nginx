@@ -160,7 +160,7 @@ install_apache(){
 		SSLCertificateKeyFile /etc/ssl/private/$fqdn.key
 		
 	</VirtualHost>
-'> /etc/nginx/conf.d/default.conf
+'> /etc/apache2/sites-available/$fqdn.conf
 	
 	a2ensite $fqdn
 	systemctl stop apache2.service
