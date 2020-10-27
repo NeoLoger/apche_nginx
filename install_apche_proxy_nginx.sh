@@ -102,7 +102,7 @@ install_apache(){
 	a2enmod expires
 	
 	touch /etc/apache2/sites-available/$fqdn.conf
-	echo'
+	echo '
 	<VirtualHost *:80>
         # Domain name the virtual host is listening to.
 		ServerName $fqdn
