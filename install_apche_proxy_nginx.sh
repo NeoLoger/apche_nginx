@@ -53,6 +53,10 @@ install_phpfpm(){
 	add-apt-repository ppa:ondrej/php -y
 	apt update
 	
+	# Test if the php version the user have given exists.
+	### code here ###
+	
+	# Start PHP installation
 	apt install php$phpv-fpm libapache2-mod-php$phpv php$phpv-cli php$phpv-mysql php$phpv-gd php$phpv-imagick php$phpv-tidy php$phpv-xml php$phpv-xmlrpc php$phpv-curl php$phpv-mbstring php$phpv-bcmath php$phpv-soap php$phpv-zip php$phpv-intl -y  
 	# set pm settings
 	echo "Configuring www.conf file..."
@@ -351,9 +355,8 @@ else
 			if [[ "$phpv" =~ ^[5-9]\.[0-9]$ ]]; then
 				echo "php$phpv Will be Installed."
 				read -p "Please imput FQDN (i.e: example.com ): " fqdn
-				apt update
-				install_apache
 				install_phpfpm
+				install_apache
 				apt install nginx -y
 				install_engintron
 				
