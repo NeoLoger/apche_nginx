@@ -101,6 +101,8 @@ install_apache(){
 	apt install links2 -y
 	apt install apache2 -y
 	
+	a2dismod mpm_prefork
+	a2dismod php$phpv
 	a2enmod rewrite
 	a2enmod headers
 	a2enmod expires
