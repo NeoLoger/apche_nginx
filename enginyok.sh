@@ -5,8 +5,8 @@
 #  For more information about the caching and NGINX optimizations see the official Engintron github https://github.com/engintron/engintron
 #
 #  This is a multi purpose script.
-#  1) You can run the script on a clean Ubuntu 18.04 server to install and auto configure Apache and PHP with NGINX as proxy.
-#  2) You can run the script on a server with Apache allredy installed to add NGINX as a proxy alongside the Apache server.  
+#  1) You can run the script on a clean Ubuntu 18.04 server to install and auto configure Apache and php-fpm with NGINX as proxy.
+#  2) You can run the script on a server with Apache already installed to add NGINX as a proxy alongside the Apache server.  
 #  3) If you execute the script for a scond time after a successful installation you will the option to Disable/Enable the NGINX proxy.
 #
 #  This script was created to automate initial web server creation and configuration, I recomnet to experiment and test it in a dev environment before going with it to production.
