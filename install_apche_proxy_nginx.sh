@@ -104,6 +104,11 @@ install_apache(){
 	a2enmod rewrite
 	a2enmod headers
 	a2enmod expires
+	a2enmod mpm_event
+	a2enmod proxy
+	a2enmod proxy_fcgi
+	a2enmod ssl
+	
 	
 	touch /etc/apache2/sites-available/$fqdn.conf
 	echo "
