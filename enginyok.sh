@@ -9,7 +9,7 @@
 #  2) You can run the script on a server with Apache allredy installed to add NGINX as a proxy alongside the Apache server.  
 #  3) If you execute the script for a scond time after a successful installation you will the option to Disable/Enable the NGINX proxy.
 #
-#  This script was created to automate initial web server creation and configuration, I recomnet to experiment and test it in a dev environment before going wiht it to production.
+#  This script was created to automate initial web server creation and configuration, I recomnet to experiment and test it in a dev environment before going with it to production.
 #  I take no responsibility if you break your production server by using my script, like everything you find on the internet make sure to read the script before blindly using it.
 #
 
