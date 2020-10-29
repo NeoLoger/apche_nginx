@@ -106,7 +106,7 @@ install_apache(){
 	a2enmod expires
 	
 	touch /etc/apache2/sites-available/$fqdn.conf
-	echo '
+	echo "
 	<VirtualHost *:80>
         # Domain name the virtual host is listening to.
 		ServerName $fqdn
@@ -121,7 +121,7 @@ install_apache(){
 
         # Set all files that end in .php tu use socket.
 		<FilesMatch \.php$>
-		SetHandler "proxy:unix:/run/php/phpver.sock|fcgi://localhost/"
+		SetHandler 'proxy:unix:/run/php/php$phpv-fpm.sock|fcgi://localhost/'
 		</FilesMatch>
 
         # Set of permissions to the website directory and to allow the use of .htaccess, will work with most websites.
@@ -148,7 +148,7 @@ install_apache(){
 
         # Set all files that end in .php tu use socket.
 		<FilesMatch \.php$>
-		SetHandler "proxy:unix:/run/php/phpver.sock|fcgi://localhost/"
+		SetHandler 'proxy:unix:/run/php/php$phpv-fpm.sock|fcgi://localhost/'
 		</FilesMatch>
 
         # Set of permissions to the website directory and to allow the use of .htaccess, will work with most websites.
@@ -164,7 +164,7 @@ install_apache(){
 		SSLCertificateKeyFile /etc/ssl/private/$fqdn.key
 		
 	</VirtualHost>
-'> /etc/apache2/sites-available/$fqdn.conf
+"> /etc/apache2/sites-available/$fqdn.conf
 	
 	a2ensite $fqdn
 	systemctl stop apache2.service
