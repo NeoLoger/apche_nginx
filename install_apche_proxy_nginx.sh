@@ -175,6 +175,8 @@ install_apache(){
 	
 	a2ensite $fqdn
 	systemctl stop apache2.service
+	# Fix Permissions to root directory
+	chown -R www-data:www-data /var/www/html
 	
 }
 
