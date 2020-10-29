@@ -364,12 +364,17 @@ else
 			if [[ "$phpv" =~ ^[5-9]\.[0-9]$ ]]; then
 				echo "php$phpv Will be Installed."
 				read -p "Please imput FQDN (i.e: example.com ): " fqdn
+				if [[ "$fqdn" =~ [\-a-zA-Z0-9]+\.[a-zA-Z0-9]+$ ]]; then
 				install_phpfpm
 				self_signed_ssl
 				install_apache
 				apt install nginx -y
 				install_engintron
 				
+				else
+				echo -e "\e[31m The Domain: $fqdn \e[39mIs not a Domain."
+				echo "Exiting.."
+				fi
 			else
 				echo -e "\e[31m php$phpv \e[39mIs not a valid PHP version."
 				echo "Exiting.."
