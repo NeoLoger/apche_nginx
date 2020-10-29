@@ -335,14 +335,14 @@ fi
 # Test if the server meets minimum requirements
 
 if [ -f /etc/Engintron ]; then
-	if	cat /etc/Engintron == 1; then
-		read -p "Disable NGINX Proxy?" -n 1 -r
+	if	grep -Fxq 1 /etc/Engintron; then
+		read -p "Disable NGINX Proxy? [y/n] " -n 1 -r
 		echo ""
 		if [[ $REPLY =~ ^[Yy]$ ]]; then
 			disable_nginx
 		fi
-	elif cat /etc/Engintron == 0; then
-		read -p "Enable NGINX Proxy?" -n 1 -r
+	elif    grep -Fxq 0 /etc/Engintron; then
+		read -p "Enable NGINX Proxy? [y/n] " -n 1 -r
 		echo ""
 		if [[ $REPLY =~ ^[Yy]$ ]]; then
 			enable_nginx
