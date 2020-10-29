@@ -356,6 +356,7 @@ else
 				echo "php$phpv Will be Installed."
 				read -p "Please imput FQDN (i.e: example.com ): " fqdn
 				install_phpfpm
+				self_signed_ssl
 				install_apache
 				apt install nginx -y
 				install_engintron
