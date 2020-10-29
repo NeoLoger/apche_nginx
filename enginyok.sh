@@ -29,7 +29,7 @@ enable_nginx(){
 	echo "Starting NGINX"
 	systemctl enable nginx.service
 	systemctl start nginx.service
-	echo 1 > /etc/Engintron
+	echo 1 > /etc/Enginyok
 }
 
 disable_nginx(){
@@ -42,7 +42,7 @@ disable_nginx(){
 	systemctl disable nginx.service
 	systemctl stop nginx.service
 	systemctl restart apache2.service
-	echo 0 > /etc/Engintron
+	echo 0 > /etc/Enginyok
 }
 
 self_signed_ssl(){
@@ -340,8 +340,8 @@ fi
 if netstat -ntlp | grep "80" | grep "apache" && netstat -ntlp | grep "443" | grep "apache" ; then
    echo -e "\e[32mApache Is UP on ports 8080 and 8443\e[39m"
    echo -e "\e[39mInstallation completed successfully!"
-   touch /etc/Engintron
-   echo 1 > /etc/Engintron
+   touch /etc/Enginyok
+   echo 1 > /etc/Enginyok
    
 else
    echo -e "\e[41mSomting went wrong with Apache configuration\e[39m"
@@ -351,14 +351,14 @@ fi
 
 # Test if the server meets minimum requirements
 
-if [ -f /etc/Engintron ]; then
-	if	grep -Fxq 1 /etc/Engintron; then
+if [ -f /etc/Enginyok ]; then
+	if	grep -Fxq 1 /etc/Enginyok; then
 		read -p "Disable NGINX Proxy? [y/n] " -n 1 -r
 		echo ""
 		if [[ $REPLY =~ ^[Yy]$ ]]; then
 			disable_nginx
 		fi
-	elif    grep -Fxq 0 /etc/Engintron; then
+	elif    grep -Fxq 0 /etc/Enginyok; then
 		read -p "Enable NGINX Proxy? [y/n] " -n 1 -r
 		echo ""
 		if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -368,7 +368,7 @@ if [ -f /etc/Engintron ]; then
 	
 else	
 		# is apache installed?
-	if [ ! -d /etc/apache2 ] && [ ! -f /etc/Engintron ] ; then
+	if [ ! -d /etc/apache2 ] && [ ! -f /etc/Enginyok ] ; then
 		echo -e "\e[31mApache is not installed on this server."
 		echo -e "You are about to install Apache with NGINX as a proxy pleas make sure you are duing it on a fresh Ubuntu 18.04 server installation.\e[39m"
 		echo -e "\e[39mPlease consult with an expert before proceeding."
