@@ -1,4 +1,5 @@
-# apche_nginx
+# enginyok
+
 Automation for Apache Proxy NGINX configuration with optimization on Ubuntu 18.04
 
 Part of the script relys on Engintron configurations for the NGINX installation.
