@@ -54,7 +54,15 @@ install_phpfpm(){
 	apt update
 	
 	# Test if the php version the user have given exists.
-	### code here ###
+	if apt search php$phpv-fpm | grep php$phpv-fpm ; then
+        	echo -e "\e[32minstalling php$phpv....\e[39m"
+		continue
+	else
+        	echo -e "The version \e[31mphp$phpv\e[39m does not exists!! Try installing diffrent version."
+		exit 1
+	fi
+
+
 	
 	# Start PHP installation
 	apt install php$phpv-fpm libapache2-mod-php$phpv php$phpv-cli php$phpv-mysql php$phpv-gd php$phpv-imagick php$phpv-tidy php$phpv-xml php$phpv-xmlrpc php$phpv-curl php$phpv-mbstring php$phpv-bcmath php$phpv-soap php$phpv-zip php$phpv-intl -y  
