@@ -262,7 +262,7 @@ echo "
 server {
     #listen 80 default_server;
     listen [::]:80 default_server ipv6only=off;
-    server_name exampleip www.exampleip;
+    server_name $fqdn www.$fqdn;
     return  301 https://\$server_name\$request_uri;
     # Set the port for HTTP proxying
     set \$PROXY_TO_PORT 8080;
@@ -275,7 +275,7 @@ echo "
 server {
     listen 443 ssl http2 default_server;
     #listen [::]:443 ssl http2 default_server;
-    server_name exampleip www.exampleip;
+    server_name $fqdn www.$fqdn;
     ssl_certificate      sslcrt;
     ssl_certificate_key  sslkey;
     include common_https.conf;
@@ -286,22 +286,16 @@ server {
 #    listen 443 ssl http2;
 #    server_name example.com www.example.com;
 #
-#    ssl_certificate      /etc/ssl/certs/exampleip;
-#    ssl_certificate_key  /etc/ssl/private/exampleip;
+#    ssl_certificate      /etc/ssl/certs/example.crt;
+#    ssl_certificate_key  /etc/ssl/private/example.key;
 #
 #    include common_https.conf;
 #}
 " > /etc/nginx/conf.d/default_https.conf
 
 
-
-echo "Set domain name"
-sed -i "s/exampleip/$fqdn/g" /etc/nginx/conf.d/default.conf
-sed -i "s/exampleip/$fqdn/g" /etc/nginx/conf.d/default_https.conf
-
-
 echo "Set domain SSL"
-# fix patch for sed command
+# fix path for sed command
 crt=$(echo $crt | sed 's_/_\\/_g')
 key=$(echo $key | sed 's_/_\\/_g')
 sed -i "s/sslcrt/$crt/g" /etc/nginx/conf.d/default_https.conf
