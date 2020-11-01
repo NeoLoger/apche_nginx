@@ -12,6 +12,10 @@
 #  This script was created to automate initial web server creation and configuration, I recomnet to experiment and test it in a dev environment before going with it to production.
 #  I take no responsibility if you break your production server by using my script, like everything you find on the internet make sure to read the script before blindly using it.
 #
+#  One-linder to use the script:
+#  cd /; rm -f enginyok.sh; wget https://raw.githubusercontent.com/NeoLoger/enginyok/main/enginyok.sh; bash enginyok.sh
+#
+
 
 # Stop Script if encontering an error.
 set -e
