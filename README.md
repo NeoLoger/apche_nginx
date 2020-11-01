@@ -14,7 +14,7 @@ This scrip will install and secure the apache and nginx and will work with most 
     - When executing the script on a clean server you will be promt to enter the domain name(FQDN) and the php version.
     
 2. You can run the script on a server with Apache already installed to add NGINX as a proxy alongside the Apache server.  
-    - If Apache server allredy installed you will be only promt to enter the domain name(FQDN) and NGINX will installed and configured.
+    - If Apache server alredy installed you will be only promt to enter the domain name(FQDN) and NGINX will installed and configured.
 
 3. If you execute the script for a scond time after a successful installation you will be granted an option to **Disable/Enable** the NGINX proxy.
     - If you encontering any issues after the NGINX installation you can simply disable the NGINX by running it a second time.
