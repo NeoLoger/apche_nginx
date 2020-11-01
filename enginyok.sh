@@ -34,7 +34,7 @@ enable_nginx(){
 	systemctl enable nginx.service
 	systemctl start nginx.service
 	echo 1 > /etc/Enginyok
-	echo -e "\e[31menginyok is Disabled!\e[39m"
+	echo -e "\e[32menginyok is Enabled!\e[39m"
 }
 
 disable_nginx(){
@@ -48,7 +48,7 @@ disable_nginx(){
 	systemctl stop nginx.service
 	systemctl restart apache2.service
 	echo 0 > /etc/Enginyok
-	echo -e "\e[32menginyok is Enabled!\e[39m"
+	echo -e "\e[31menginyok is Disabled!\e[39m"
 }
 
 self_signed_ssl(){
