@@ -402,7 +402,7 @@ else
 			exit 1
 		fi
 	else
-	# Test if NGINX is allredy installed on the server
+	# Test if NGINX is alredy installed on the server
 		if [ -d /etc/nginx ] ; then
 			echo -e "\e[31mNGINX allrdy installed..."
 			echo -e "Are you sure uknow waht you are doing?\e[39m"
