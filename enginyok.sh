@@ -341,8 +341,9 @@ if netstat -ntlp | grep "80" | grep "apache" && netstat -ntlp | grep "443" | gre
    echo -e "\e[39mInstallation completed successfully!"
    touch /etc/Enginyok
    echo 1 > /etc/Enginyok
-   echo -e "*** you experianceig any issues after NGINX installation ***"
+   echo -e "*** If you experianceig any issues after NGINX installation ***"
    echo -e "*** You can \e[4mDisable/Enable\e[24m NGINX by executing the scritp agin: bash /enginyok.sh ***"
+   echo -e "*** If you wnat to disable Static or Dinamic cache you can follow the instractions in: /etc/nginx/custom_rules ***"
    
 else
    echo -e "\e[41mSomting went wrong with Apache configuration\e[39m"
