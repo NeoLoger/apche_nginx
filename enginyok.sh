@@ -132,6 +132,7 @@ install_apache(){
 	a2enmod proxy
 	a2enmod proxy_fcgi
 	a2enmod ssl
+	a2enmod remoteip
 	
 	
 	touch /etc/apache2/sites-available/$fqdn.conf
@@ -140,7 +141,8 @@ install_apache(){
         # Domain name the virtual host is listening to.
 		ServerName $fqdn
 		ServerAlias www.$fqdn
-
+		DirectoryIndex index.php index.html
+		
         # Location of the website files and the index file.
 		DocumentRoot /var/www/html/
 
@@ -167,7 +169,8 @@ install_apache(){
         # Domain name the virtual host is listening to.
 		ServerName $fqdn
 		ServerAlias www.$fqdn
-
+		DirectoryIndex index.php index.html
+		
         # Location of the website files and the index file.
 		DocumentRoot /var/www/html/
 
