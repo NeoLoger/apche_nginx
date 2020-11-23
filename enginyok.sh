@@ -252,6 +252,69 @@ echo "Cangeing nginx user to www-data"
 sed -i 's/user nginx/user www-data/g' /etc/nginx/nginx.conf
 sed -i '55 a set $PROXY_DOMAIN_OR_IP "127.0.0.1";' /etc/nginx/custom_rules
 
+echo "Configure realip For third-party CDNs"
+sed -i '87 a \   \ #WAF Real IP adderss' /etc/nginx/nginx.conf
+sed -i '88 a \   \' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 45.126.124.183;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.127.16.226;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 46.166.134.86;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 63.250.56.18;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.125.170;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.220.207.74;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.127.183;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.127.183;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.127.183;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.127.183;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 91.223.106.182;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.241.6.243;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 52.144.46.70;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 138.128.245.25;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 138.128.244.27;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 64.74.12.83;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.237.98.97;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.229.227.112;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.126.136;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.241.4.166;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.127.195;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.229.226.58;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.241.6.180;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 198.22.162.191;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 104.129.131.217;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.237.98.180;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.126.135;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.241.4.89;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.127.53;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.229.226.57;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 5.100.250.25;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.241.6.155;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 138.128.241.156;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.126.134;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.241.4.165;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.162.127.196;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.229.226.56;' /etc/nginx/nginx.conf
+sed -i '88 a \   \ set_real_ip_from 185.241.6.89;' /etc/nginx/nginx.conf
+
+sed -i '127 a \   \ # Sucuri realip IP adderss' /etc/nginx/nginx.conf
+sed -i '128 a \   \ ' /etc/nginx/nginx.conf
+sed -i '128 a \   \ #set_real_ip_from 2a02:fe80::/29; # this line can be removed if IPv6 is disabled' /etc/nginx/nginx.conf
+sed -i '128 a \   \ set_real_ip_from 192.88.134.0/23;' /etc/nginx/nginx.conf
+sed -i '128 a \   \ set_real_ip_from 185.93.228.0/22;' /etc/nginx/nginx.conf
+sed -i '128 a \   \ set_real_ip_from 66.248.200.0/22;' /etc/nginx/nginx.conf
+sed -i '128 a \   \ set_real_ip_from 208.109.0.0/22;' /etc/nginx/nginx.conf
+sed -i '128 a \   \ # Define header with original client IP' /etc/nginx/nginx.conf
+
+sed -i '135 a \   \ # Incapsula realip IP adderss' /etc/nginx/nginx.conf
+sed -i '136 a \   \ ' /etc/nginx/nginx.conf
+sed -i '136 a \   \ #set_real_ip_from 2a02:e980::/29;' /etc/nginx/nginx.conf
+sed -i '136 a \   \ set_real_ip_from 199.83.128.0/21;' /etc/nginx/nginx.conf
+sed -i '136 a \   \ set_real_ip_from 198.143.32.0/19;' /etc/nginx/nginx.conf
+sed -i '136 a \   \ set_real_ip_from 149.126.72.0/21;' /etc/nginx/nginx.conf
+sed -i '136 a \   \ set_real_ip_from 103.28.248.0/22;' /etc/nginx/nginx.conf
+sed -i '136 a \   \ set_real_ip_from 45.64.64.0/22;' /etc/nginx/nginx.conf
+sed -i '136 a \   \ set_real_ip_from 185.11.124.0/22;' /etc/nginx/nginx.conf
+sed -i '136 a \   \ set_real_ip_from 192.230.64.0/18;' /etc/nginx/nginx.conf
+sed -i '136 a \   \ set_real_ip_from 107.154.0.0/16;' /etc/nginx/nginx.conf
+
 echo "Blocking malicious robots and web crawlers"
 echo "if (\$http_user_agent ~* (360Spider|80legs.com|Abonti|AcoonBot|Acunetix|adbeat_bot|AddThis.com|adidxbot|ADmantX|AhrefsBot|AngloINFO|Antelope|Applebot|BaiduSpider|BeetleBot|billigerbot|binlar|bitlybot|BlackWidow|BLP_bbot|BoardReader|Bolt\ 0|BOT\ for\ JCE|Bot\ mailto\:craftbot@yahoo\.com|casper|CazoodleBot|CCBot|checkprivacy|ChinaClaw|chromeframe|Clerkbot|Cliqzbot|clshttp|CommonCrawler|CPython|crawler4j|Crawlera|CRAZYWEBCRAWLER|Curious|Custo|CWS_proxy|Default\ Browser\ 0|diavol|DigExt|Digincore|DIIbot|discobot|DISCo|DoCoMo|DotBot|Download\ Demon|DTS.Agent|EasouSpider|eCatch|ecxi|EirGrabber|Elmer|EmailCollector|EmailSiphon|EmailWolf|Exabot|ExaleadCloudView|ExpertSearchSpider|ExpertSearch|Express\ WebPictures|ExtractorPro|extract|EyeNetIE|Ezooms|F2S|FastSeek|feedfinder|FeedlyBot|FHscan|finbot|Flamingo_SearchEngine|FlappyBot|FlashGet|flicky|Flipboard|g00g1e|Genieo|genieo|GetRight|GetWeb\!|GigablastOpenSource|GozaikBot|Go\!Zilla|Go\-Ahead\-Got\-It|GrabNet|grab|Grafula|GrapeshotCrawler|GTB5|GT\:\:WWW|Guzzle|harvest|heritrix|HMView|HomePageBot|HTTP\:\:Lite|HTTrack|HubSpot|ia_archiver|icarus6|IDBot|id\-search|IlseBot|Image\ Stripper|Image\ Sucker|Indigonet|Indy\ Library|integromedb|InterGET|InternetSeer\.com|Internet\ Ninja|IRLbot|ISC\ Systems\ iRc\ Search\ 2\.1|JetCar|JobdiggerSpider|JOC\ Web\ Spider|Jooblebot|kanagawa|KINGSpider|kmccrew|larbin|LeechFTP|Lingewoud|LinkChecker|linkdexbot|LinksCrawler|LinksManager\.com_bot|linkwalker|LinqiaRSSBot|LivelapBot|ltx71|LubbersBot|lwp\-trivial|Mail.RU_Bot|masscan|Mass\ Downloader|maverick|Maxthon$|Mediatoolkitbot|MegaIndex|MegaIndex|megaindex|MFC_Tear_Sample|Microsoft\ URL\ Control|microsoft\.url|MIDown\ tool|miner|Missigua\ Locator|Mister\ PiX|mj12bot|MSFrontPage|msnbot|Navroad|NearSite|NetAnts|netEstate|NetSpider|NetZIP|Net\ Vampire|NextGenSearchBot|nutch|Octopus|Offline\ Explorer|Offline\ Navigator|OpenindexSpider|OpenWebSpider|OrangeBot|Owlin|PageGrabber|PagesInventory|panopta|panscient\.com|Papa\ Foto|pavuk|pcBrowser|PECL\:\:HTTP|PeoplePal|Photon|PHPCrawl|planetwork|PleaseCrawl|PNAMAIN.EXE|PodcastPartyBot|prijsbest|proximic|psbot|purebot|pycurl|QuerySeekerSpider|R6_CommentReader|R6_FeedFetcher|RealDownload|ReGet|Riddler|Rippers\ 0|RSSingBot|rv\:1.9.1|RyzeCrawler|SafeSearch|SBIder|Scrapy|Scrapy|SeaMonkey$|search.goo.ne.jp|SearchmetricsBot|search_robot|SemrushBot|Semrush|SentiBot|SEOkicks|SeznamBot|ShowyouBot|SightupBot|SISTRIX|sitecheck\.internetseer\.com|siteexplorer.info|SiteSnagger|skygrid|Slackbot|Slurp|SmartDownload|Snoopy|Sogou|Sosospider|spaumbot|Steeler|sucker|SuperBot|Superfeedr|SuperHTTP|SurdotlyBot|Surfbot|tAkeOut|Teleport\ Pro|TinEye-bot|TinEye|Toata\ dragostea\ mea\ pentru\ diavola|Toplistbot|trendictionbot|TurnitinBot|turnit|URI\:\:Fetch|urllib|Vagabondo|Vagabondo|vikspider|VoidEYE|VoilaBot|WBSearchBot|webalta|WebAuto|WebBandit|WebCollage|WebCopier|WebFetch|WebGo\ IS|WebLeacher|WebReaper|WebSauger|Website\ eXtractor|Website\ Quester|WebStripper|WebWhacker|WebZIP|Web\ Image\ Collector|Web\ Sucker|Wells\ Search\ II|WEP\ Search|WeSEE|Widow|WinInet|woobot|woopingbot|worldwebheritage.org|Wotbox|WPScan|WWWOFFLE|WWW\-Mechanize|Xaldon\ WebSpider|XoviBot|yacybot|YisouSpider|YandexBot|Yandex|zermelo|Zeus|zh-CN|ZmEu|ZumBot|ZyBorg) ) {
     return 410;
