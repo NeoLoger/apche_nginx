@@ -133,7 +133,12 @@ install_apache(){
 	a2enmod proxy_fcgi
 	a2enmod ssl
 	a2enmod remoteip
-	
+
+	# fix apache logs to show real IP
+	sed -i '212 a RemoteIPHeader X-Forwarded-For' /etc/apache2/apache2.conf
+	sed -i '213 a RemoteIPInternalProxy 127.0.0.1' /etc/apache2/apache2.conf
+	sed -i "s/%h/%a/g" /etc/apache2/apache2.conf
+
 	
 	touch /etc/apache2/sites-available/$fqdn.conf
 	echo "
