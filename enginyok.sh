@@ -107,7 +107,7 @@ install_phpfpm(){
 	sed -i "s/$var/post_max_size = 16M/g" /etc/php/$phpv/fpm/php.ini
 	
 	var=$(grep upload_max_filesize /etc/php/$phpv/fpm/php.ini)
-	sed -i "s/$var/upload_max_filesize = 64/g" /etc/php/$phpv/fpm/php.ini
+	sed -i "s/$var/upload_max_filesize = 64M/g" /etc/php/$phpv/fpm/php.ini
 	
 	echo "Disabling high vulnerability php functions..."
 	var=$(grep disable_functions /etc/php/$phpv/fpm/php.ini)
