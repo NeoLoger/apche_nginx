@@ -404,6 +404,9 @@ systemctl enable apache2.service
 echo "Restarting nginx service"
 service nginx restart
 
+touch /etc/Enginyok
+echo 1 > /etc/Enginyok
+
 if netstat -ntlp | grep "80" | grep "nginx" && netstat -ntlp | grep "443" | grep "nginx" ; then
    echo -e "\e[32mNGINX Is UP on ports 80 and 443\e[39m"
 else
@@ -413,8 +416,6 @@ fi
 if netstat -ntlp | grep "80" | grep "apache" && netstat -ntlp | grep "443" | grep "apache" ; then
    echo -e "\e[32mApache Is UP on ports 8080 and 8443\e[39m"
    echo -e "\e[39mInstallation completed successfully!"
-   touch /etc/Enginyok
-   echo 1 > /etc/Enginyok
    echo -e "*** If you experianceig any issues after NGINX installation ***"
    echo -e "*** You can \e[4mDisable/Enable\e[24m NGINX by executing the scritp agin: bash /enginyok.sh ***"
    echo -e "*** If you wnat to disable Static or Dinamic cache you can follow the instractions in: /etc/nginx/custom_rules ***"
