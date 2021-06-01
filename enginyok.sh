@@ -338,7 +338,7 @@ server {
     #listen 80 default_server;
     listen [::]:80 default_server ipv6only=off;
     server_name $fqdn www.$fqdn;
-    return  301 https://\$server_name\$request_uri;
+    return  301 https://\$host\$request_uri;
     # Set the port for HTTP proxying
     set \$PROXY_TO_PORT 8080;
     include common_http.conf;
